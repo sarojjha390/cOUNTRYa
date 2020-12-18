@@ -1,0 +1,14 @@
+.country-item{
+    border:1px solid black;
+    padding:0.5em;
+    margin-bottom: 0.5em;
+
+}
+.col-sm-4 img{
+    width:150px;
+}
+
+.col-sm-8 h2 {
+    position: right;
+    text-align:right;
+}
