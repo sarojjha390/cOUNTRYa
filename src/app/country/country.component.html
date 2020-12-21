@@ -1,12 +1,13 @@
 
-
-   <h1>Countries</h1>
-      
-   <input class="form-control" type="text" placeholder="Search for coumtries.." aria-label="Search">
-
+<div class="container">
+   <h1 >Countries</h1>
+    <div class="form-group col-md-6">
+   <input  type="text" id="Search" class="form-control"  placeholder="Search for countries.." aria-label="Search">
+   </div>
    <div class="card" style="width: 30rem;">
        
     <div class="card-body">
+       
         <div class="row" *ngFor="let Countrys of Country">
             <div class="col-sm-6">
             <img class="card-img" src="{{Countrys.flag}}" alt="Card image cap">
@@ -19,10 +20,11 @@
            <small>Current date and time:23rd jan 2020</small>
            <a href="#" class="btn btn-outline-primary">Show Map</a> &nbsp;
            <a href="#" class="btn btn-outline-primary">Details</a>
-            </div>  
+        </div>  
         </div>  
     </div>
  </div>
+</div>
 
 
 
