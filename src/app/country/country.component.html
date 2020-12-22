@@ -1,97 +1,32 @@
 
+<div class="container center">
+   <h1 >Countries</h1>
+    <div class="form-group col-md-9">
+   <input  type="text" id="Search" class="form-control" name="name" [(ngModel)]="name" (ngModelChange)="search()" placeholder="Search for countries.." aria-label="Search">
+   </div>
 
-   <h1>Countries</h1>
-      
-   <input class="form-control" type="text" placeholder="Search for coumtries.." aria-label="Search">
-
-   <div class="card" style="width: 30rem;">
+   <div class="card" style="width: 30rem;" *ngFor="let Countrys of Country | filter:name">
        
-    <div class="card-body">
-        <div class="row" *ngFor="let Countrys of Country">
+    <div class="card-body" >
+       
+        <div class="row" >
             <div class="col-sm-6">
             <img class="card-img" src="{{Countrys.flag}}" alt="Card image cap">
             </div>
             <div class="col-sm-6">
            <h2 class="card-title">{{Countrys.name}}</h2>
-           
-           <small>Capital:{{Countrys.capital}}</small> &nbsp;
-        
-           <small>Current date and time:23rd jan 2020</small>
+           <div *ngFor="let i of Countrys.currencies">
+           <p class="card-text">Currency:{{i.name}}</p> 
+           </div>
            <a href="#" class="btn btn-outline-primary">Show Map</a> &nbsp;
-           <a href="#" class="btn btn-outline-primary">Details</a>
+           <a href="#" class="btn btn-outline-primary">Details</a> <br><br>
             </div>  
-        </div>  
+        </div>
     </div>
  </div>
+</div>
 
 
 
-    <!-- <table class="table"> 
-        <thead> 
-        <tr> 
-            <th>Name</th> 
-            <th>capital</th>
-            <th>Flag</th> -->
-            <!-- <th scope="col">Position</th>  -->
-            
-        <!-- </tr> 
-
-        </thead> 
-        <tbody> 
-        <tr *ngFor="let Countrys of country"> 
-            <td>{{Countrys.name}}</td> 
-             <td>{{Countrys.capital}}</td>  
-             <td><img src="{{Countrys.flag}}"></td> -->
-            <!-- <td>{{ e.office }}</td> 
-            <td>{{ e.salary }}</td>  -->
-            
-        <!-- </tr> 
-        </tbody> 
-    </table>    -->
-
-
-
-  <!-- // li:any; 
-  // lis=[]; 
-  country:any;
-  Countrys=[];
-  constructor(private httpClinet : HttpClient){  }
-
-  ngOnInit(): void {
-
-    this.getCountrys();
-
-  }
-    getCountrys(){ 
-
-
-      this.httpClinet.get('https://restcountries.eu/rest/v2/all').subscribe(
-        response => {
-          console.log(response);
-          this.country= response;
-          this.Countrys=this.country.Countrys;
-
-        }
-      );
-      }
-
-}
-
-  //   this.http.get('https://restcountries.eu/rest/v2/all')
-  //   .subscribe (Response => { 
-  
-  //     // If response comes hideloader() function is called 
-  //     // to hide that loader  
-  //     if(Response){   
-  //       hideloader(); 
-  //     } 
-  //     console.log(Response) 
-  //     this.li=Response; 
-  //     this.lis=this.li.list; 
-  //   }); 
-  //   function hideloader(){ 
-  //     document.getElementById('loading').style.display = 'none';} 
-  // }} 
-  
- -->
+   
 

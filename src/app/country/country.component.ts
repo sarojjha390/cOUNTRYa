@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {CountryserviceService} from 'src/app/countryservice.service';
+
+
+
+
 
 
 export class Country{
@@ -7,6 +12,7 @@ export class Country{
   constructor(
     
      name: string,
+     
   ) {
   }
 
@@ -20,13 +26,15 @@ export class Country{
 export class CountryComponent implements OnInit {
 
   Countrys: Country[];
+  name: string;
+ 
   
-
-  // li:any; 
-  // lis=[]; 
+   
+  
    Country:any;
   country=[];
-  constructor(private httpClinet : HttpClient){  }
+  constructor(private httpClinet : HttpClient, 
+              private restservice : CountryserviceService){  }
 
   ngOnInit(): void {
 
@@ -36,7 +44,7 @@ export class CountryComponent implements OnInit {
     getCountrys(){ 
 
 
-    return  this.httpClinet.get('https://restcountries.eu/rest/v2/all').subscribe(
+    this.restservice.getCountryData().subscribe(
         response => {
           console.log(response);
           this.Country = response;
@@ -45,9 +53,18 @@ export class CountryComponent implements OnInit {
         }
       );
       }
+       search(){
+          this.Country =this.Country.filter(res =>{
+            return res.Country.toLocaleLowerCase().match(this.Country.toLocaleLowerCase());
+          });
+        
+      }
+
+      
       
 }
 
+  
  
   
 

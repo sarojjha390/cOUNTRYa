@@ -12,3 +12,12 @@
     position: right;
     text-align:right;
 }
+
+.container{
+    margin-left: 120;
+    float: center;
+    width: 50%;
+    padding: 10px;
+    align-items: center;
+}
+
